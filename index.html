@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #root { border: 1px sold red;}
+  </style>
+</head>
+<body>
+  <div id="root">jdjdjdjddjdjdjdjj</div>
+
+
+  <h1>Hi there</h1>
+
+  <script>
+    const getClock = () => {
+      // new instance of the current date
+      const today = new Date();
+
+      // Convert
+      let hour = today.getHours();
+      let min = today.getMinutes();
+      let sec = today.getSeconds();
+      let millisecond = today.getMilliseconds();
+
+      //Assemble
+      let currentTime = `${hour} : ${min} : ${sec}: ${millisecond}`;
+
+      // check Leading Zero
+      hour = checkLeadingZero(hour);
+      minute = checkLeadingZero(minute);
+      second = checkLeadingZero(second);
+
+      // Render
+      document.querySelector("#root").innerHTML = currentTime;
+
+      setTimeout(getClock, 100);
+    }
+
+    const checkLeadingZero = paramTime => {
+      paramTime < 10
+      ? paramTime = `0${paramTime}`
+      :null
+
+      return paramTime;
+    }
+
+    getClock();
+    
+  </script>
+</body>
+</html>
